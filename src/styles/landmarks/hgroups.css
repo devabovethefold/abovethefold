@@ -6,4 +6,8 @@ hgroup {
   > :is(p, h1, h2, h3, h4, h5, h6) {
     @apply my-0! leading-tight!;
   }
+
+  p {
+    @apply text-base-hi text-sm font-bold uppercase;
+  }
 }

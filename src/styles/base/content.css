@@ -5,18 +5,31 @@
 }
 
 @utility split-* {
-  --split-count: --value(integer);
+  options: {
+    types: [ratio, number];
+  }
+
+  --split-number: --value(integer);
+  --split-ratio: --value(ratio);
 }
 
 @utility content {
   @apply gap-x-content grid;
 
-  --content-split-count: var(--split-count, 1);
+  --content-split-count: var(--split-number, 1);
   --content-gap-count: calc(var(--content-split-count) - 1);
   --content-gap-size: calc(var(--content-gap-count) * var(--gap-content));
 
   --screen-gap-count: calc(var(--gap-init) + var(--content-gap-count));
   --screen-gap-size: calc(var(--screen-gap-count) * var(--gap-content));
+
+  --split-even: repeat(
+    var(--content-split-count),
+    minmax(0, calc(var(--content-size) / var(--content-split-count)))
+  );
+
+  --split-odd: calc(var(--content-size) * var(--split-ratio))
+    calc(var(--content-size) * (1 - var(--split-ratio)));
 
   &.breakout {
     --content-max: var(--breakout-width);
@@ -33,10 +46,7 @@
     [fullwidth-start]
     1fr
     [content-start]
-    repeat(
-      var(--content-split-count),
-      minmax(0, calc(var(--content-size) / var(--content-split-count)))
-    )
+    var(--split-even, var(--split-odd))
     [content-end]
     1fr
     [fullwidth-end]

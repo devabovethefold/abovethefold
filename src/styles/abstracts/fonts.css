@@ -14,4 +14,5 @@
   --text-h4: calc(1rem * pow(var(--font-scale), 3));
   --text-h5: calc(1rem * pow(var(--font-scale), 2));
   --text-h6: calc(1rem * pow(var(--font-scale), 1));
+  --text-tiny: calc(1rem * pow(var(--font-scale), -2));
 }

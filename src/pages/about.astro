@@ -5,18 +5,32 @@ import {Icon} from 'astro-icon/components'
 ---
 
 <Layout>
-  <section class="content-3/5">
+  <section class="split-3/5 content-center">
     <div class="wrap">
       <div class="item">
         <header>
-          <p>Solution</p>
-          <h2>Delivering Certainty</h2>
+          <hgroup>
+            <p>Solution</p>
+            <h2>Delivering Certainty</h2>
+          </hgroup>
         </header>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae natus ex illo deserunt
           velit voluptatibus, non error, voluptates numquam ad, suscipit dolorem repellat aspernatur
           libero officia sint culpa voluptatum saepe?
         </p>
+        <ul class="grid grid-cols-1 gap-2 md:grid-cols-2 md:grid-rows-[repeat(3,_auto)]">
+          <li class="grid md:row-span-3 md:grid-rows-subgrid">
+            <Icon name="mdi:asterisk" class="text-accent-lo size-8" />
+            <h3 class="text-h6!">Lorem, ipsum dolor sit amet consectetur?</h3>
+            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </li>
+          <li class="grid md:row-span-3 md:grid-rows-subgrid">
+            <Icon name="mdi:arrow-right-circle-outline" class="text-accent-lo size-8" />
+            <h3 class="text-h6!">Lorem ipsum dolor sit.</h3>
+            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </li>
+        </ul>
       </div>
       <div class="item">
         <img src="https://placehold.co/450x500/png" alt="" />

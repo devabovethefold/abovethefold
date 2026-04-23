@@ -26,6 +26,8 @@ export default defineConfig({
     icon({
       include: {
         mdi: [
+          'arrow-right-circle-outline',
+          'asterisk',
           'chevron-down',
           'menu',
           'moon-waning-crescent',
