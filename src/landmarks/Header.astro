@@ -1,0 +1,45 @@
+---
+import {Icon} from 'astro-icon/components'
+---
+
+<header class="content py-3">
+  <nav class="grid grid-cols-2 items-center justify-between md:grid-cols-[1fr_auto_1fr]">
+    <a href="/" class="text-2xl font-bold">above the fold</a>
+
+    <ul class="hidden max-w-52 basis-2xs items-center justify-between gap-4 text-sm md:flex">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+
+    <div class="flex items-center justify-end gap-4">
+      <button
+        x-data="$store.theme"
+        @click="toggle()"
+        :aria-label="label"
+        class="btn-transparent p-0!"
+      >
+        <Icon name="mdi:moon-waning-crescent" class="hidden -rotate-25 dark:block" />
+        <Icon name="mdi:white-balance-sunny" class="dark:hidden" />
+      </button>
+      <button
+        x-data="$store.drawer"
+        @click="toggle()"
+        aria-label="Open mobile navigation menu"
+        class="btn-transparent p-0! md:hidden!"
+      >
+        <Icon name="mdi:menu" />
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- <style>
+  @import '@styles/landmarks/header.css';
+</style> -->

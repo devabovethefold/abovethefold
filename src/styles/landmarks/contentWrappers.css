@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+.wrap {
+  @apply grid grid-cols-subgrid;
+}

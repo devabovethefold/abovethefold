@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+header:has(h2) {
+  @apply mb-4;
+}
+
+header:has(h3) {
+  @apply mb-2;
+}

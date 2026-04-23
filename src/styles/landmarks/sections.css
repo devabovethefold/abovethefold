@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+section:not([class*='content-']) {
+  @apply content py-content;
+}
+
+section[class*='content-'] {
+  @apply gap-x-content py-content grid;
+}

@@ -1,0 +1,16 @@
+---
+import {Icon} from 'astro-icon/components'
+---
+
+<dialog
+  x-effect="$store.drawer.open ? $el.showModal() : $el.close()"
+  @close="$store.drawer.open = false"
+  @click="if ($event.target === $el) $store.drawer.open = false"
+  aria-label="Navigation Menu"
+>
+  <button @click="$store.drawer.toggle()"><Icon name="mdi:window-close" /></button>
+</dialog>
+
+<style>
+  @import '@styles/landmarks/drawer.css';
+</style>

@@ -1,0 +1,9 @@
+@theme {
+  --spacing-content: clamp(2rem, -1rem + 7.5vw, 5rem);
+  --gap-content: clamp(0.5rem, -1rem + 3.75vw, 2rem);
+
+  --content-width: 60.25rem;
+  --breakout-width: 75.25rem;
+
+  --gap-init: 6;
+}

@@ -1,0 +1,14 @@
+@reference "tailwindcss";
+
+body {
+  @apply text-neutral-hi bg-white dark:bg-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-base-hi;
+}

@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+hgroup {
+  @apply grid gap-y-1;
+
+  > :is(p, h1, h2, h3, h4, h5, h6) {
+    @apply my-0! leading-tight!;
+  }
+}

@@ -1,0 +1,23 @@
+@reference "tailwindcss";
+
+html,
+body {
+  @apply min-h-screen w-full overflow-x-clip;
+}
+
+body {
+  @apply grid grid-cols-1 grid-rows-[auto_1fr_auto];
+  grid-template-areas: 'hd' 'mn' 'ft';
+
+  > header {
+    grid-area: hd;
+  }
+
+  > main {
+    grid-area: mn;
+  }
+
+  > footer {
+    grid-area: ft;
+  }
+}
