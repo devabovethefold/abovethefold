@@ -1,9 +1,9 @@
 @reference "tailwindcss";
 
-section:not([class*='content-']) {
-  @apply content py-content;
+section:not([class*='format-']) {
+  @apply format py-copy;
 }
 
-section[class*='content-'] {
-  @apply gap-x-content py-content grid;
+section[class*='format-'] {
+  @apply gap-x-copy py-copy grid;
 }

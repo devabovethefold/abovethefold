@@ -3,9 +3,12 @@ import '@styles/global.css'
 
 import {Font} from 'astro:assets'
 import {ClientRouter} from 'astro:transitions'
+
+import initTheme from '../utilities/theme/init?raw'
 ---
 
 <head>
+  <script is:inline set:html={initTheme} />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title></title>

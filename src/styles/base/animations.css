@@ -1,0 +1,236 @@
+@reference "tailwindcss";
+
+@utility reveal {
+  --reveal-name: reveal;
+
+  animation-name: var(--reveal-name, none), var(--slide-name, none);
+  animation-duration: var(--tw-duration, 500ms);
+  animation-timing-function: var(--tw-ease, linear);
+  animation-fill-mode: var(--animation-fill-mode, both);
+  view-timeline-axis: var(--view-timeline-axis, block);
+  animation-range: var(--range-start-type, entry) var(--range-start, 0%)
+    var(--range-end-type, contain) var(--range-end, 100%);
+  animation-timeline: var(--animation-timeline, view());
+}
+
+@utility slide {
+  --slide-name: slide;
+
+  animation-name: var(--reveal-name, none), var(--slide-name, none);
+  animation-duration: var(--duration, 500ms);
+  animation-timing-function: var(--ease, linear);
+  animation-fill-mode: both;
+  transform: translate(var(--slide-x, 0), var(--slide-y, 0));
+}
+
+@utility stagger-* {
+  options: {
+    types: [time];
+  }
+
+  --stagger: var(--value);
+
+  & > * {
+    animation-delay: calc(var(--stagger, 100ms) * (sibling-index() - 1));
+  }
+}
+
+@utility timeline-view {
+  --animation-timeline: view();
+}
+
+@utility timeline-scroll {
+  --animation-timeline: scroll();
+}
+
+@utility timeline-* {
+  --animation-timeline: var(--value);
+}
+
+@utility axis-* {
+  options: {
+    values: [block, inline, y, x];
+  }
+
+  --view-timeline-axis: var(--value);
+}
+
+@utility mode-* {
+  options: {
+    values: [none, forwards, backwards, both];
+  }
+
+  --animation-fill-mode: var(--value);
+}
+
+@utility range-start-* {
+  --range-start: --value(percentage);
+  --range-start: --spacing(--value(integer));
+  --range-start: --value([length]);
+}
+
+@utility range-start-type-* {
+  options: {
+    values: [entry, exit];
+  }
+
+  --range-start-type: var(--value);
+}
+
+@utility range-end-* {
+  --range-end: --value(percentage);
+  --range-end: --spacing(--value(integer));
+  --range-end: --value([length]);
+}
+
+@utility range-end-type-* {
+  options: {
+    values: [cover, contain];
+  }
+
+  --range-end-type: var(--value);
+}
+
+@utility up-* {
+  options: {
+    types: [percentage, integer, length];
+  }
+
+  --slide-y: --value(percentage);
+  --slide-y: --spacing(--value(integer));
+  --slide-y: --value([length]);
+}
+
+@utility down-* {
+  options: {
+    types: [percentage, integer, length];
+  }
+
+  --slide-y: calc(var(--value) * -1);
+  --slide-y: calc(--spacing(--value(integer)) * -1);
+  --slide-y: calc(var(--value([length])) * -1);
+}
+
+@utility left-* {
+  options: {
+    types: [percentage, integer, length];
+  }
+
+  --slide-x: --value(percentage);
+  --slide-x: --spacing(--value(integer));
+  --slide-x: --value([length]);
+}
+
+@utility right-* {
+  options: {
+    types: [percentage, integer, length];
+  }
+
+  --slide-x: calc(var(--value) * -1);
+  --slide-x: calc(--spacing(--value(integer)) * -1);
+  --slide-x: calc(var(--value([length])) * -1);
+}
+
+/* 
+@utility marquee {
+  animation-name: loop-horizontally;
+  animation-duration: var(--duration, 30s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+  
+@utility start-* {
+  options: {
+    types: [percentage];
+  }
+  --range-start: var(--value);
+}
+
+@utility end-* {
+  options: {
+    types: [percentage];
+  }
+  --range-end: var(--value);
+}
+
+@utility entry {
+  --range-start-type: entry;
+}
+@utility exit {
+  --range-start-type: exit;
+}
+@utility cover {
+  --range-end-type: cover;
+}
+@utility contain {
+  --range-end-type: contain;
+}
+
+@utility duration-* {
+  options: {
+    types: [time];
+  }
+  --duration: var(--value);
+}
+
+@utility delay-* {
+  options: {
+    types: [time];
+  }
+  animation-delay: var(--value);
+}
+
+@utility once {
+  animation-iteration-count: 1;
+}
+@utility reverse {
+  animation-direction: reverse;
+}
+
+@utility ease-velocity {
+  animation-timing-function: cubic-bezier(var(--velocity-x, 0.4), var(--velocity-y, 0), 0.2, 1);
+}
+
+@utility timeline-* {
+  --timeline: var(--value);
+}
+
+.timeline-container {
+  view-timeline-name: var(--timeline, --default-timeline);
+  view-timeline-axis: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+    transition-delay: -1ms !important;
+  }
+}
+
+@utility debug-outline {
+  outline: 2px dashed red;
+}
+
+@utility debug-timeline {
+  outline: 2px dashed blue;
+  position: relative;
+
+  &::after {
+    content: 'Timeline Active';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: blue;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    z-index: 50;
+  }
+} */

@@ -3,8 +3,8 @@ const url = Astro.url.pathname
 ---
 
 {
-  url === '/' && (
-    <header class="content py-content content-center justify-items-center gap-y-4 text-center">
+  url === '/' ? (
+    <header class="format py-copy content-center justify-items-center gap-y-4 text-center">
       <hgroup class="mx-auto mb-0 max-w-lg">
         <h1 class="text-h6! font-sans! font-normal! lowercase">Above the Fold</h1>
         <p class="text-h1! leading-none! font-bold text-balance normal-case!">
@@ -29,6 +29,27 @@ const url = Astro.url.pathname
         <a href="http://" class="btn btn-outline">
           Discover More
         </a>
+      </div>
+    </header>
+  ) : (
+    <header class="format split-3/5 py-copy">
+      <div class="item grid content-center">
+        <hgroup>
+          <p>A title of some significance</p>
+          <h1>A subheading or title of some significance</h1>
+        </hgroup>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quidem eaque officiis
+          asperiores ullam tempore debitis saepe, voluptate voluptatum repellendus.
+        </p>
+        <div class="flex gap-2">
+          <a href="#" class="btn btn-accent">
+            Contact Us
+          </a>
+          <a href="#" class="btn btn-outline">
+            Discover More
+          </a>
+        </div>
       </div>
     </header>
   )

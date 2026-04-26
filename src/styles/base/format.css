@@ -1,0 +1,109 @@
+@reference "tailwindcss";
+
+@utility py-copy {
+  @apply py-(--spacing-copy-block);
+}
+
+@utility split-* {
+  options: {
+    types: [ratio, number, percentage];
+  }
+
+  --split-number: --value(integer);
+  --split-ratio: --value(ratio, percentage);
+  --split-count: var(--split-number, 2);
+}
+
+@utility format {
+  @apply gap-x-copy grid;
+
+  --copy-split-count: var(--split-count, 1);
+  --copy-gap-count: calc(var(--copy-split-count) - 1);
+  --copy-gap-size: calc(var(--copy-gap-count) * var(--gap-copy));
+
+  --screen-gap-count: var(--gap-init);
+  --screen-gap-size: calc(var(--screen-gap-count) * var(--gap-copy));
+
+  --columns-number: repeat(
+    var(--copy-split-count),
+    minmax(0, calc((var(--copy-size) - var(--copy-gap-size)) / var(--copy-split-count)))
+  );
+
+  --columns-ratio: calc((var(--copy-size) - var(--copy-gap-size)) * var(--split-ratio))
+    calc((var(--copy-size) - var(--copy-gap-size)) * (1 - var(--split-ratio)));
+
+  &.breakout {
+    --copy-max: var(--breakout-width);
+  }
+
+  --copy-size: min(
+    calc(100% - var(--screen-gap-size)),
+    var(--copy-max, var(--copy-width))
+  );
+
+  grid-template-columns:
+    [screen-start]
+    0px
+    [fullwidth-start]
+    1fr
+    [copy-start]
+    var(--columns-ratio, var(--columns-number))
+    [copy-end]
+    1fr
+    [fullwidth-end]
+    0px
+    [screen-end];
+
+  > * {
+    grid-column: copy;
+  }
+}
+
+@utility format-* {
+  options: {
+    types: [percentage, ratio];
+  }
+
+  @apply gap-x-copy grid;
+
+  --copy-split: --value(percentage, ratio);
+
+  --copy-size: min(
+    calc(100% - var(--gap-init) * var(--gap-copy)),
+    var(--copy-max, var(--copy-width))
+  );
+
+  --copy-1: calc((var(--copy-size) - var(--gap-copy)) * var(--copy-split));
+  --copy-2: calc((var(--copy-size) - var(--gap-copy)) - var(--copy-1));
+
+  &.breakout {
+    --copy-max: var(--breakout-width);
+  }
+
+  grid-template-columns:
+    [screen-start]
+    0px
+    [fullwidth-start]
+    1fr
+    [copy-start]
+    var(--copy-1)
+    [center]
+    var(--copy-2)
+    [copy-end]
+    1fr
+    [fullwidth-end]
+    0px
+    [screen-end];
+
+  > * {
+    grid-column: copy;
+  }
+}
+
+@utility item {
+  grid-column: span 1 !important;
+
+  &:nth-child(1 of .item) {
+    grid-column-start: copy-start !important;
+  }
+}

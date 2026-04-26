@@ -1,4 +1,3 @@
-import Alpine from 'alpinejs'
 import persist from '@alpinejs/persist'
 
 import type { Alpine as AlpineType } from 'alpinejs'

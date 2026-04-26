@@ -13,7 +13,7 @@ import step3 from '@images/step_3.png'
 ---
 
 <Layout>
-  <section class="md:split-3">
+  <section>
     <header>
       <h2>Problem section headline that bluntly brings up the main pain point.</h2>
     </header>
@@ -39,7 +39,7 @@ import step3 from '@images/step_3.png'
       </li>
     </ul>
   </section>
-  <section class="split-2">
+  <section class="md:split-2">
     <div class="item">
       <header>
         <h2>Introduce the Solution</h2>
@@ -73,26 +73,26 @@ import step3 from '@images/step_3.png'
       eveniet voluptatum aliquid rerum, saepe vel impedit placeat? Dolorem, repudiandae sint fugiat
       possimus illum obcaecati dolor incidunt esse voluptas necessitatibus ad.
     </p>
-    <div class="grid grid-cols-1 items-stretch justify-center gap-4 md:grid-cols-3">
-      <article class="tile p-8">
+    <ul class="wrap grid-rows-[repeat(2,_auto)] gap-y-3">
+      <li class="item tile p-8">
         <header>
           <h3>Benefit One</h3>
         </header>
         <p>Briefly mention <strong>the feature behind the benefit</strong> to tie it together.</p>
-      </article>
-      <article class="tile p-8">
+      </li>
+      <li class="item tile p-8">
         <header>
           <h3>Benefit Two</h3>
         </header>
         <p>Briefly mention <strong>the feature behind the benefit</strong> to tie it together.</p>
-      </article>
-      <article class="tile p-8">
+      </li>
+      <li class="item tile p-8">
         <header>
           <h3>Benefit Three</h3>
         </header>
         <p>Briefly mention <strong>the feature behind the benefit</strong> to tie it together.</p>
-      </article>
-    </div>
+      </li>
+    </ul>
   </section>
   <section class="md:split-3 breakout text-center">
     <header>
@@ -101,7 +101,7 @@ import step3 from '@images/step_3.png'
     <p>But don't just take our word for it. Hear what our satisfied customers have to say.</p>
     <ul class="wrap grid-rows-[repeat(3,_auto)] gap-y-3">
       <li
-        class="tile border-neutral-lo row-span-3 grid grid-rows-subgrid justify-items-center rounded-2xl border p-8 py-6"
+        class="item tile border-neutral-lo row-span-3 grid grid-rows-subgrid justify-items-center rounded-2xl border p-8 py-6"
       >
         <img src={avatarJason.src} alt="Jason Mark" class="size-25 rounded-full" />
         <p>
@@ -111,7 +111,7 @@ import step3 from '@images/step_3.png'
         <p class="text-sm">Jason Mark</p>
       </li>
       <li
-        class="tile border-neutral-lo row-span-3 grid grid-rows-subgrid justify-items-center rounded-2xl border p-8 py-6"
+        class="item tile border-neutral-lo row-span-3 grid grid-rows-subgrid justify-items-center rounded-2xl border p-8 py-6"
       >
         <img src={avatarBarbara.src} alt="Barbara Simmons" class="size-25 rounded-full" />
         <p>
@@ -121,7 +121,7 @@ import step3 from '@images/step_3.png'
         <p class="text-sm">Barbara Simmons</p>
       </li>
       <li
-        class="tile border-neutral-lo row-span-3 grid grid-rows-subgrid justify-items-center rounded-2xl border p-8 py-6"
+        class="item tile border-neutral-lo row-span-3 grid grid-rows-subgrid justify-items-center rounded-2xl border p-8 py-6"
       >
         <img src={avatarHarry.src} alt="Harry O'Donnell" class="size-25 rounded-full" />
         <p>
@@ -137,12 +137,12 @@ import step3 from '@images/step_3.png'
       <h2>3 Simple Steps</h2>
     </header>
     <ul class="wrap grid-rows-[repeat(3,_auto)] gap-y-3">
-      <li class="tile row-span-3 grid grid-rows-subgrid justify-items-center py-6">
+      <li class="item tile row-span-3 grid grid-rows-subgrid justify-items-center py-6">
         <img src={step1.src} alt="Always Your CTA" class="size-25 rounded-xl" />
         <h3>Step 1: Always Your CTA</h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, repellat sint.</p>
       </li>
-      <li class="tile row-span-3 grid grid-rows-subgrid justify-items-center py-6">
+      <li class="item tile row-span-3 grid grid-rows-subgrid justify-items-center py-6">
         <img src={step2.src} alt="The Actual Work" class="size-25 rounded-xl" />
         <h3>Step 2: The Actual Work</h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, repellat sint.</p>

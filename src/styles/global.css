@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 /* abstracts */
-@import './abstracts/animations.css';
 @import './abstracts/fonts.css';
+@import './abstracts/keyframes.css';
 @import './abstracts/palette.css';
 @import './abstracts/spacing.css';
 
@@ -11,9 +11,9 @@
 @import './themes/dark.css';
 
 /* base */
+@import './base/animations.css';
 @import './base/colors.css';
-@import './base/content.css';
-@import './base/keyframes.css';
+@import './base/format.css';
 @import './base/typography.css';
 
 /* landmarks */
