@@ -1,0 +1,319 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+export async function getStaticPaths() {
+  const projects = [
+    {
+      slug: 'onio-insights',
+      name: 'Onio Insights',
+      description: 'Enterprise data analytics and business intelligence platform built for modern decision-makers.',
+      stat: '4× faster load time',
+      beforeUrl: 'http://onioinsights.com/',
+      afterUrl: 'https://onioinsights.pages.dev',
+      beforeDomain: 'onioinsights.com',
+      afterDomain: 'onioinsights.pages.dev',
+      beforeImg: '/images/portfolio/onio-before.png',
+      afterImg: '/images/portfolio/onio-after.png',
+      businessInfo: 'Onio Insights is a leading data analytics and business intelligence provider helping enterprise organizations decode complex data streams. They deliver visual decision tools, predictive modeling, and action-oriented dashboards that empower executives to lead with clarity and foresight in highly competitive corporate landscapes.',
+      changesInfo: [
+        'Migrated from a legacy, heavy PHP backend to a high-speed static site framework, achieving a 400% page load acceleration.',
+        'Designed an ultra-clean, futuristic dark-mode theme utilizing translucent glassmorphic components and crisp typography.',
+        'Created responsive, light-weight vector graphics for dynamic and modern data visualizations.',
+        'Removed complex nested navigation structures in favor of an intuitive, single-level sidebar interface.',
+        'Optimized asset delivery pipelines and reduced external payloads to achieve flawless PageSpeed scores.'
+      ]
+    },
+    {
+      slug: 'eclc-stuart',
+      name: 'ECLC Stuart',
+      description: 'Early Childhood Learning Center providing nurturing, developmental preschool education in Stuart, FL.',
+      stat: '2× increase in inquiries',
+      beforeUrl: 'https://www.tbhfl.org/eclc',
+      afterUrl: 'https://www.eclcstuart.com/',
+      beforeDomain: 'tbhfl.org/eclc',
+      afterDomain: 'eclcstuart.com',
+      beforeImg: '/images/portfolio/eclc-before.png',
+      afterImg: '/images/portfolio/eclc-after.png',
+      businessInfo: 'Early Childhood Learning Center (ECLC) in Stuart, Florida, is a highly regarded developmental preschool that provides warm, child-centered education. Focused on early cognitive, social, and emotional development, ECLC offers an active, play-based learning environment where young minds can explore and thrive.',
+      changesInfo: [
+        'Replaced an outdated, unoptimized sub-page template with a modern, standalone custom school landing page.',
+        'Designed a warm, welcoming visual system using soft organic shapes, friendly elements, and a bright pastel color palette.',
+        'Developed an intuitive parent resources portal with clean, direct navigation for enrollment and contact.',
+        'Conducted a comprehensive local SEO overhaul targeting Stuart and Martin County families, resulting in top organic search rankings.',
+        'Streamlined the student registration inquiry process into a simple, high-converting online form.'
+      ]
+    },
+    {
+      slug: 'beth-jordan-productions',
+      name: 'Beth Jordan Productions',
+      description: "Premium entertainment booking and event production agency representing Florida's top wedding bands.",
+      stat: '95+ PageSpeed score',
+      beforeUrl: 'https://bethjordanproductions.com/',
+      afterUrl: 'https://bethjordanproductions.pages.dev/',
+      beforeDomain: 'bethjordanproductions.com',
+      afterDomain: 'bethjordanproductions.pages.dev',
+      beforeImg: '/images/portfolio/beth-before.png',
+      afterImg: '/images/portfolio/beth-after.png',
+      businessInfo: 'Beth Jordan Productions is a premium live music entertainment and event production agency based in Florida. They specialize in curating high-energy, world-class musical acts, premium wedding bands, and custom sound design solutions for luxury corporate functions, weddings, and high-end private galas.',
+      changesInfo: [
+        'Elevated their entire digital footprint from an amateurish, dark starry 90s-style website to a high-end luxury digital showcase.',
+        'Crafted a high-impact, cinematic visual identity using a dark slate background, gold accents, and elegant editorial typography.',
+        'Integrated high-resolution, full-screen background media layouts designed to load instantly using next-gen image compression.',
+        'Optimized web asset delivery and caching strategies to raise their PageSpeed performance score from the low 30s to over 95.',
+        'Designed clean, responsive band catalog grids that highlight dynamic artist bio cards and inquiry widgets.'
+      ]
+    },
+    {
+      slug: 'rocket-rentals-usa',
+      name: 'Rocket Rentals USA',
+      description: 'National heavy equipment and tool rental platform serving commercial and residential projects.',
+      stat: '3× more quote requests',
+      beforeUrl: 'https://www.rocketrentalsusa.com/',
+      afterUrl: 'https://rocketrentals.pages.dev/',
+      beforeDomain: 'rocketrentalsusa.com',
+      afterDomain: 'rocketrentals.pages.dev',
+      beforeImg: '/images/portfolio/rocket-before.png',
+      afterImg: '/images/portfolio/rocket-after.png',
+      businessInfo: 'Rocket Rentals USA is a premier heavy machinery, tool, and construction equipment rental provider. Serving both commercial contractors and residential DIYers, they supply an extensive fleet of reliable diggers, lifts, generators, and specialized tools, backed by local delivery and customer support.',
+      changesInfo: [
+        'Redesigned a cluttered, text-heavy catalog into a highly responsive, mobile-first inventory search engine.',
+        'Developed an intuitive equipment booking widget featuring date-pickers, category filters, and quick quote tools.',
+        'Replaced low-resolution inventory graphics with crisp, high-resolution product showcase cards.',
+        'Implemented optimized search indexing and schema markups to drive high-intent organic contractor search traffic.',
+        'Streamlined the checkout/booking funnel to reduce friction, resulting in a triple-digit increase in daily inquiries.'
+      ]
+    },
+    {
+      slug: 'kidz-4-a-cure',
+      name: 'Kidz 4 A Cure',
+      description: 'Nonprofit fundraising organization raising vital funds for pediatric cancer research and cures.',
+      stat: '40% donation lift',
+      beforeUrl: 'https://www.kidz4acure.org/',
+      afterUrl: 'https://kidz4acure.pages.dev/',
+      beforeDomain: 'kidz4acure.org',
+      afterDomain: 'kidz4acure.pages.dev',
+      beforeImg: '/images/portfolio/kidz-before.png',
+      afterImg: '/images/portfolio/kidz-after.png',
+      businessInfo: 'Kidz 4 A Cure is a passionate nonprofit organization dedicated to funding pioneering medical research for childhood cancer cures. Through community events, corporate sponsorships, and individual giving, they unite people across the nation to bring hope, support, and healing to children battling cancer.',
+      changesInfo: [
+        'Rebuilt their outdated blog-style template into a highly professional, high-trust charitable fundraising platform.',
+        'Designed an emotionally engaging landing experience centered around high-impact, authentic photography and stories.',
+        'Engineered an interactive donation widget featuring custom giving tiers, recurrences, and a real-time goal progress bar.',
+        'Optimized the site architecture for maximum performance, mobile loading speed, and secure donation processing.',
+        'Integrated social proof, trust badges, and financial transparency disclosures to inspire and reassure donors.'
+      ]
+    }
+  ];
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Base
+  title={`${project.name} Case Study — Above The Fold`}
+  description={project.description}
+>
+  <!-- Page hero -->
+  <section class="bg-brand-navy pt-20 pb-24 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <svg class="absolute top-0 right-0 w-72 h-72 opacity-[0.04]" viewBox="0 0 288 288" fill="none">
+        <path d="M144 18 L162 121 L265 144 L162 167 L144 270 L126 167 L23 144 L126 121 Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <!-- Back button -->
+      <div class="mb-8">
+        <a href="/portfolio" class="inline-flex items-center gap-2 text-white/60 hover:text-white font-body text-sm transition-colors group">
+          <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Portfolio
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-end">
+        <div class="lg:col-span-2">
+          <span class="inline-flex items-center gap-1.5 text-brand-orange font-body font-medium text-xs uppercase tracking-widest mb-4">
+            <svg class="w-3 h-3" viewBox="0 0 12 12" fill="currentColor"><path d="M6 0 L7 4.8 L12 6 L7 7.2 L6 12 L5 7.2 L0 6 L5 4.8 Z"/></svg>
+            Case Study
+          </span>
+          <h1 class="font-display font-extrabold text-white text-3xl sm:text-5xl tracking-tight mb-4">
+            {project.name}
+          </h1>
+          <p class="font-body text-white/70 text-lg sm:text-xl leading-relaxed max-w-3xl">
+            {project.description}
+          </p>
+        </div>
+        <div class="lg:col-span-1 lg:text-right">
+          <div class="inline-flex flex-col lg:items-end gap-1.5 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 backdrop-blur-sm">
+            <span class="font-body text-white/50 text-xs uppercase tracking-wider">Key Result</span>
+            <span class="font-display font-extrabold text-brand-orange text-2xl sm:text-3xl">{project.stat}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slider & Case Study Details -->
+  <section class="py-20 bg-brand-surface relative">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      
+      <!-- Comparison slider -->
+      <div class="mb-20">
+        <h2 class="font-display font-bold text-brand-navy text-xl sm:text-2xl mb-6 flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-brand-orange rounded-full"></span>
+          Before & After Comparison
+        </h2>
+        
+        <div
+          x-data="{
+            pct: 50,
+            dragging: false,
+            startDrag(e) {
+              this.dragging = true;
+              e.currentTarget.setPointerCapture(e.pointerId);
+            },
+            onDrag(e) {
+              if (!this.dragging) return;
+              const rect = e.currentTarget.getBoundingClientRect();
+              this.pct = Math.min(100, Math.max(0, ((e.clientX - rect.left) / rect.width) * 100));
+            },
+            stopDrag() { this.dragging = false; }
+          }"
+          @pointerdown="startDrag"
+          @pointermove="onDrag"
+          @pointerup="stopDrag"
+          @pointercancel="stopDrag"
+          class="relative overflow-hidden rounded-2xl select-none"
+          style="width: 100%; aspect-ratio: 16/9; border-radius: 16px; cursor: ew-resize; box-shadow: 0 10px 40px rgba(27,47,94,0.12);"
+        >
+          <!-- BEFORE Image -->
+          <div class="absolute inset-0 select-none pointer-events-none">
+            <img
+              src={project.beforeImg}
+              alt={`${project.name} — Before`}
+              class="w-full h-full object-cover object-top select-none pointer-events-none"
+            />
+          </div>
+
+          <!-- AFTER Image (clipped) -->
+          <div
+            class="absolute inset-0 select-none pointer-events-none"
+            :style="'clip-path: inset(0 0 0 ' + pct + '%)'"
+          >
+            <img
+              src={project.afterImg}
+              alt={`${project.name} — After`}
+              class="w-full h-full object-cover object-top select-none pointer-events-none"
+            />
+          </div>
+
+          <!-- Divider line -->
+          <div
+            class="absolute top-0 bottom-0 pointer-events-none"
+            :style="'left: ' + pct + '%'"
+            style="width: 3px; background: white; transform: translateX(-50%); z-index: 10;"
+          >
+            <!-- Handle -->
+            <div
+              class="absolute top-1/2 left-1/2"
+              style="transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; background: #E8601A; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.3);"
+            >
+              <!-- Arrows horizontal icon -->
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 9l-3 3 3 3"/>
+                <path d="M17 9l3 3-3 3"/>
+                <line x1="4" y1="12" x2="20" y2="12"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Labels -->
+          <div class="absolute top-4 left-4 pointer-events-none z-20">
+            <span class="font-body font-semibold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider" style="background: rgba(0,0,0,0.6); color: #fff; backdrop-filter: blur(8px);">Before</span>
+          </div>
+          <div
+            class="absolute top-4 pointer-events-none z-20"
+            :style="'left: calc(' + pct + '% + 1rem)'"
+          >
+            <span class="font-body font-semibold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider bg-brand-orange text-white">After</span>
+          </div>
+
+          <!-- Touch hint -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none z-20 opacity-80"
+            x-show="pct === 50"
+            x-transition:leave="transition ease-in duration-500"
+            x-transition:leave-end="opacity-0"
+          >
+            <span class="font-body text-xs text-white bg-brand-navy/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-lg">Drag handle to compare</span>
+          </div>
+        </div>
+
+        <!-- Visit links below slider -->
+        <div class="flex items-center gap-6 mt-6 justify-end">
+          <a href={project.beforeUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 font-body text-sm text-brand-navy/50 hover:text-brand-navy transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Visit Legacy Site ({project.beforeDomain})
+          </a>
+          <div class="w-px h-4 bg-brand-navy/15"></div>
+          <a href={project.afterUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 font-body text-sm text-brand-orange hover:text-brand-orange-dark transition-colors font-semibold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Visit Launched Site ({project.afterDomain})
+          </a>
+        </div>
+      </div>
+
+      <!-- Business Info & Changes Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <!-- Business Info Column -->
+        <div class="bg-white rounded-2xl p-8 sm:p-10 border border-brand-navy/5 shadow-sm">
+          <h3 class="font-display font-extrabold text-brand-navy text-2xl mb-5 flex items-center gap-2.5">
+            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            About the Business
+          </h3>
+          <div class="w-12 h-1 bg-brand-orange/20 rounded-full mb-6"></div>
+          <p class="font-body text-brand-navy/70 text-base sm:text-lg leading-relaxed">
+            {project.businessInfo}
+          </p>
+        </div>
+
+        <!-- Changes Made Column -->
+        <div class="bg-white rounded-2xl p-8 sm:p-10 border border-brand-navy/5 shadow-sm">
+          <h3 class="font-display font-extrabold text-brand-navy text-2xl mb-5 flex items-center gap-2.5">
+            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+            The Transformation (Changes Made)
+          </h3>
+          <div class="w-12 h-1 bg-brand-orange/20 rounded-full mb-6"></div>
+          
+          <ul class="space-y-4">
+            {project.changesInfo.map((change) => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-1 bg-brand-orange/10 text-brand-orange p-1 rounded-full">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <span class="font-body text-brand-navy/85 text-sm sm:text-base leading-relaxed">
+                  {change}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <CTABanner />
+</Base>
