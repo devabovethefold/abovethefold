@@ -1,0 +1,72 @@
+---
+const reasons = [
+  {
+    stat: '100%',
+    claim: 'Local Expertise',
+    detail: 'We live and work in Florida. We understand the market, the seasonality, and how local customers search — giving your business a genuine home-field advantage.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 11m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg>`,
+  },
+  {
+    stat: '3×',
+    claim: 'Performance-First Builds',
+    detail: 'Our sites consistently score 95+ on Google PageSpeed. Faster load times mean better rankings, lower bounce rates, and more revenue for your business.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg>`,
+  },
+  {
+    stat: '24/7',
+    claim: 'Ongoing Support',
+    detail: "We don't disappear after launch. From maintenance and updates to strategy reviews, we're your long-term digital partner — not just a one-time vendor.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 7v5l3 3"/></svg>`,
+  },
+];
+---
+
+<section class="py-24 bg-brand-surface" id="why-us">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div
+      x-data="{ visible: false }"
+      x-intersect.once="visible = true"
+      :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+      class="transition-all duration-700 ease-out text-center mb-16"
+    >
+      <span class="inline-flex items-center gap-1.5 text-brand-orange font-body font-medium text-xs uppercase tracking-widest mb-4">
+        <svg class="w-3 h-3" viewBox="0 0 12 12" fill="currentColor"><path d="M6 0 L7 4.8 L12 6 L7 7.2 L6 12 L5 7.2 L0 6 L5 4.8 Z"/></svg>
+        Why Choose Us
+      </span>
+      <h2 class="font-display font-extrabold text-brand-navy text-3xl sm:text-4xl tracking-tight mb-4">
+        Why Florida Businesses Choose Us
+      </h2>
+      <p class="font-body text-brand-navy/60 text-lg max-w-2xl mx-auto leading-relaxed">
+        We combine local market knowledge with world-class execution to deliver results that move the needle.
+      </p>
+    </div>
+
+    <!-- 3-column grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {reasons.map((reason, i) => (
+        <div
+          x-data="{ visible: false }"
+          x-intersect.once="visible = true"
+          :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+          class="transition-all duration-700 ease-out"
+          style={`transition-delay: ${i * 100}ms`}
+        >
+          <div class="card-lift bg-white rounded-xl p-8 h-full relative overflow-hidden" style="box-shadow: 0 2px 20px rgba(0,0,0,0.06);">
+            <!-- Decorative star -->
+            <div class="absolute top-5 right-5 opacity-5" aria-hidden="true">
+              <svg class="w-16 h-16" viewBox="0 0 64 64" fill="none"><path d="M32 4 L37 27 L60 32 L37 37 L32 60 L27 37 L4 32 L27 27 Z" fill="#1B2F5E"/></svg>
+            </div>
+
+            <div class="text-brand-orange mb-4" set:html={reason.icon} />
+            <div class="font-display font-extrabold text-brand-navy text-4xl mb-2">{reason.stat}</div>
+            <h3 class="font-display font-bold text-brand-navy text-xl mb-3">{reason.claim}</h3>
+            <p class="font-body text-brand-navy/60 text-sm leading-relaxed">{reason.detail}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

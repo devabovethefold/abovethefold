@@ -1,0 +1,58 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Above The Fold — Florida Web Design, Development & SEO",
+  description = "Web design, development, SEO, and branding built for Florida businesses that want results.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <ClientRouter />
+
+    <!-- Alpine.js -->
+    <script>
+      import Alpine from 'alpinejs';
+      import intersect from '@alpinejs/intersect';
+
+      Alpine.plugin(intersect);
+
+      if (!window.Alpine) {
+        window.Alpine = Alpine;
+        Alpine.start();
+      }
+
+      document.addEventListener('astro:before-swap', () => {
+        Alpine.stopObservingMutations();
+      });
+
+      document.addEventListener('astro:page-load', () => {
+        Alpine.initTree(document.documentElement);
+        Alpine.startObservingMutations();
+      });
+    </script>
+  </head>
+  <body class="font-body bg-white text-brand-navy antialiased">
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
