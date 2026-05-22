@@ -1,10 +1,46 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://abovethefold.biz/contact/#localbusiness",
+  "name": "Above The Fold",
+  "image": "https://abovethefold.biz/images/og-default.png",
+  "url": "https://abovethefold.biz/contact",
+  "telephone": "+15555555555",
+  "email": "hello@abovethefold.biz",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Stuart",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 27.1975,
+    "longitude": -80.2528
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00"
+  }
+};
 ---
 
 <Base
   title="Contact — Above The Fold"
   description="Get in touch with Above The Fold. Tell us about your Florida business and let's build something great."
+  customSchema={contactSchema}
 >
   <!-- Page hero -->
   <section class="bg-brand-navy pt-20 pb-24 relative overflow-hidden">

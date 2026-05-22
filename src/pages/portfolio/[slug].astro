@@ -113,11 +113,31 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": `${project.name} Case Study — Above The Fold`,
+  "description": project.description,
+  "image": `https://abovethefold.biz${project.afterImg}`,
+  "creator": {
+    "@type": "Organization",
+    "name": "Above The Fold",
+    "url": "https://abovethefold.biz"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Above The Fold"
+  },
+  "url": `https://abovethefold.biz/portfolio/${project.slug}`
+};
 ---
 
 <Base
   title={`${project.name} Case Study — Above The Fold`}
   description={project.description}
+  ogImage={project.afterImg}
+  customSchema={projectSchema}
 >
   <!-- Page hero -->
   <section class="bg-brand-navy pt-20 pb-24 relative overflow-hidden">

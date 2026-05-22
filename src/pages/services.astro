@@ -60,11 +60,46 @@ const services = [
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.272 1.272L21 12l-5.816 1.916a2 2 0 0 0-1.272 1.272L12 21l-1.912-5.812a2 2 0 0 0-1.272-1.272L3 12l5.816-1.916a2 2 0 0 0 1.272-1.272L12 3z"/></svg>`,
   },
 ];
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Web Design",
+      "description": "Conversion-oriented, beautiful, and fully custom UI/UX design tailored specifically to local Florida businesses.",
+      "provider": { "@type": "Organization", "name": "Above The Fold", "url": "https://abovethefold.biz" },
+      "areaServed": "US-FL"
+    },
+    {
+      "@type": "Service",
+      "name": "Web Development",
+      "description": "Blazing-fast, custom coded websites using modern static site generators and frameworks that achieve perfect 95+ PageSpeed scores.",
+      "provider": { "@type": "Organization", "name": "Above The Fold", "url": "https://abovethefold.biz" },
+      "areaServed": "US-FL"
+    },
+    {
+      "@type": "Service",
+      "name": "SEO & Organic Positioning",
+      "description": "Strategic search engine optimization, Local SEO, Google Business profile enhancement, and crawl-friendly technical indexing strategies.",
+      "provider": { "@type": "Organization", "name": "Above The Fold", "url": "https://abovethefold.biz" },
+      "areaServed": "US-FL"
+    },
+    {
+      "@type": "Service",
+      "name": "Business Branding",
+      "description": "High-fidelity modern business branding packages, visual design systems, print collateral, logos, and custom typography frameworks.",
+      "provider": { "@type": "Organization", "name": "Above The Fold", "url": "https://abovethefold.biz" },
+      "areaServed": "US-FL"
+    }
+  ]
+};
 ---
 
 <Base
   title="Services — Above The Fold"
   description="Web design, development, SEO, and business branding services for Florida businesses. Performance-first. Results-focused."
+  customSchema={servicesSchema}
 >
   <!-- Page hero -->
   <section class="bg-brand-navy pt-20 pb-24 relative overflow-hidden">

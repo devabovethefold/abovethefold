@@ -44,11 +44,26 @@ const projects = [
     tags: ['Nonprofit', 'Giving UX', 'Page Speed']
   },
 ];
+
+const portfolioSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://abovethefold.biz/portfolio/#collectionpage",
+  "url": "https://abovethefold.biz/portfolio",
+  "name": "Above The Fold Case Studies Portfolio",
+  "description": "Interactive before and after website design transformations for Florida businesses. See our web design, development, and branding work.",
+  "about": {
+    "@type": "Organization",
+    "name": "Above The Fold",
+    "url": "https://abovethefold.biz"
+  }
+};
 ---
 
 <Base
   title="Portfolio — Above The Fold"
   description="Real before and after website transformations for Florida businesses. See our web design, development, and branding work."
+  customSchema={portfolioSchema}
 >
   <!-- Page hero -->
   <section class="bg-brand-navy pt-20 pb-24 relative overflow-hidden">
