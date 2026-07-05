@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import WhyUs from '../components/WhyUs.astro';
+import Process from '../components/Process.astro';
+import Testimonials from '../components/Testimonials.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import CTABanner from '../components/CTABanner.astro';
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://abovethefold.biz/#organization",
+      "name": "Above The Fold",
+      "url": "https://abovethefold.biz",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://abovethefold.biz/#logo",
+        "url": "https://abovethefold.biz/favicon.svg",
+        "caption": "Above The Fold Logo"
+      },
+      "image": { "@id": "https://abovethefold.biz/#logo" },
+      "description": "Premium web design, speed-optimized web development, results-driven SEO, and professional business branding agency in Florida.",
+      "email": "hello@abovethefold.biz",
+      "telephone": "+15555555555",
+      "sameAs": [
+        "https://www.linkedin.com/company/above-the-fold-biz",
+        "https://www.instagram.com/abovethefold.biz",
+        "https://www.facebook.com/abovethefold.biz"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://abovethefold.biz/#website",
+      "url": "https://abovethefold.biz",
+      "name": "Above The Fold",
+      "description": "Florida Web Design, Development & SEO Agency",
+      "publisher": { "@id": "https://abovethefold.biz/#organization" }
+    }
+  ]
+};
+---
+
+<Base
+  title="Above The Fold — Florida Web Design, Development & SEO"
+  description="Web design, development, SEO, and branding for Florida businesses. We build websites that actually convert."
+  customSchema={homeSchema}
+>
+  <Hero />
+  <Services />
+  <WhyUs />
+  <Process />
+  <Testimonials />
+  <PortfolioPreview />
+  <CTABanner />
+</Base>

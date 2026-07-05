@@ -1,0 +1,7 @@
+---
+// Legacy layout — use Base.astro for new pages
+import Base from './Base.astro';
+interface Props { title?: string }
+const { title } = Astro.props;
+---
+<Base title={title}><slot /></Base>
