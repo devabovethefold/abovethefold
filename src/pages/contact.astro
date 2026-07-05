@@ -176,9 +176,26 @@ const contactSchema = {
                 },
                 async submit() {
                   this.loading = true;
-                  await new Promise(r => setTimeout(r, 1200));
-                  this.loading = false;
-                  this.sent = true;
+                  try {
+                    const response = await fetch('/api/contact', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(this.form)
+                    });
+                    if (response.ok) {
+                      this.sent = true;
+                    } else {
+                      const errData = await response.json().catch(() => ({}));
+                      alert(errData.error || 'Something went wrong. Please try again.');
+                    }
+                  } catch (error) {
+                    console.error(error);
+                    alert('Network error. Please try again.');
+                  } finally {
+                    this.loading = false;
+                  }
                 }
               }"
             >
@@ -197,9 +214,8 @@ const contactSchema = {
               <form
                 x-show="!sent"
                 @submit.prevent="submit"
-                action="mailto:hello@abovethefold.biz"
-                method="post"
-                enctype="text/plain"
+                action="/api/contact"
+                method="POST"
                 class="space-y-5"
                 novalidate
               >
